@@ -24,18 +24,27 @@
             <textarea class="form-control" placeholder="Put a sentence here" id="paragraph" name="paragraph" required></textarea>
             <label for="paragraph">Your paragraph</label>
           </div>
+          <p id="len" class="fs-6 text-end fst-italic fw-light">lenght: 0</p>
         </div>
-        <div class="col-6 my-3">
+        <div class="col-6">
           <div class="form-floating">
             <input type="text" class="form-control" placeholder="Put a sentence here" id="word" name="word" required />
             <label for="word">Word to be censored</label>
           </div>
         </div>
-        <div class="col-6 my-3">
+        <div class="col-6 mt-3">
           <button class="btn btn-primary">Submit</button>
           <button type="reset" class="btn btn-warning">Reset</button>
         </div>
       </form>
     </div>
+
+    <script>
+      const pEl = document.querySelector("#paragraph");
+      const lenEl = document.querySelector("#len");
+      pEl.addEventListener("input", () => {
+        lenEl.innerText = `lenght: ${pEl.value.length}`;
+      });
+    </script>
   </body>
 </html>
