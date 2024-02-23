@@ -1,24 +1,27 @@
 <?php
 
-$paragraph = $_GET["paragraph"];
-$word = $_GET["word"];
+    $paragraph = $_GET["paragraph"];
+    $word = $_GET["word"];
+    $old_len = strlen($paragraph);
 
-$censored_char = "***";
-$paragraph_censored = $paragraph;
-$result = "No censorship needed";
+    $censored_char = "***";
+    $paragraph_censored = $paragraph;
+    $result = "No censorship needed";
 
-$isCensored = str_contains($paragraph, $word);
+    $isCensored = str_contains($paragraph, $word);
 
-if($isCensored){
-    $word_fst = $word[0];
-    $word_lst = $word[strlen($word) - 1];
-    $word_censored = $word_fst . $censored_char . $word_lst;
-    $paragraph_censored = str_replace($word, $word_censored, $paragraph);
-    $result = "Paragraph correctly censored";
+    if($isCensored){
+        $word_fst = $word[0];
+        $word_lst = $word[strlen($word) - 1];
+        $word_censored = $word_fst . $censored_char . $word_lst;
+        $paragraph_censored = str_replace($word, $word_censored, $paragraph);
+        $result = "Paragraph correctly censored";
 
-};
+    };
 
-// var_dump($isCensored);
+    $new_len = strlen($paragraph_censored);
+
+    // var_dump($isCensored);
 
 ?>
 
@@ -49,14 +52,16 @@ if($isCensored){
             <textarea class="form-control" id="paragraph" name="paragraph" disabled><?= $paragraph ?></textarea>
             <label for="paragraph">Your paragraph</label>
           </div>
+          <p class="fs-6 text-end fst-italic fw-light">lenght: <?= $old_len ?></p>
         </div>
-        <div class="col-6 my-3">
+        <div class="col-6">
           <div class="form-floating">
             <textarea class="form-control" id="paragraph_censored" name="paragraph"><?= $paragraph_censored ?></textarea>
             <label for="paragraph_censored">Your censored paragraph</label>
           </div>
+          <p class="fs-6 text-end fst-italic fw-light">lenght: <?= $new_len ?></p>
         </div>
-        <div class="col-6 my-3">
+        <div class="col-6">
             <p><?= $result ?></p>
           <a href="./index.html" class="btn btn-primary">Again</a>
         </div>
