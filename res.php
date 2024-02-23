@@ -52,8 +52,8 @@ if($isCensored){
         </div>
         <div class="col-6 my-3">
           <div class="form-floating">
-            <textarea class="form-control" id="paragraph" name="paragraph"><?= $paragraph_censored ?></textarea>
-            <label for="paragraph">Your censored paragraph</label>
+            <textarea class="form-control" id="paragraph_censored" name="paragraph"><?= $paragraph_censored ?></textarea>
+            <label for="paragraph_censored">Your censored paragraph</label>
           </div>
         </div>
         <div class="col-6 my-3">
